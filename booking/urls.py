@@ -28,4 +28,5 @@ urlpatterns = [
     path('api_schema', get_schema_view(title='API Schema', description='Guide for the REST API'), name='api_schema'),
     path('api/', include('user.urls')), 
     path('api/', include('tournaments.urls')),
+    path('api/', include('news.urls')),
 ]

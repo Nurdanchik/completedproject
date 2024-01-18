@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # installed apps
     'user',
     'tournaments',
+    'news',
 ]
 
 AUTH_USER_MODEL = 'auth.User'
