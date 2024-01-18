@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'user',
     'tournaments',
     'news',
+    'participating',
 ]
 
 AUTH_USER_MODEL = 'auth.User'
