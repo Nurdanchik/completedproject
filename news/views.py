@@ -7,7 +7,7 @@ class NewsListAPIView(generics.ListCreateAPIView):
     serializer_class = NewsSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-class NewsDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = News.objects.all()
-    serializer_class = NewsSerializer
-    permission_classes = [permissions.IsAdminUser]
+# class NewsDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = News.objects.all()
+#     serializer_class = NewsSerializer
+#     permission_classes = [permissions.IsAdminUser]

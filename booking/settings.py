@@ -44,12 +44,19 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework_simplejwt',
     'rest_framework.authtoken',
+    'corsheaders',
     # installed apps
     'user',
     'tournaments',
     'news',
     'participating',
+    'crud',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",
+]
+
 
 AUTH_USER_MODEL = 'auth.User'
 
@@ -61,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'booking.urls'
@@ -140,6 +148,10 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 
 # Internationalization

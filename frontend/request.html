@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@300&family=Roboto+Condensed:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./request.css">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+:root {
+    --container: 144rem;
+    --m-auto: 0 auto;
+    --white: #fff;
+    --primary: #8db8ab;
+    --secondary: #eeeee4;
+    --gr-1: rgba(53, 202, 123, 0.607);
+    --gr-2: rgba(32, 190, 124, 0.665);
+    --nav: rgba(233, 217, 217, 0.045);
+    --mobile-nav: #75e19d;
+    --count-down-bg: rgba(51, 89, 47, 0.295);
+    --timer-before-bg: rgb(218, 201, 109);
+}
+
+body {
+    font-size:1.6rem;
+}
+
+.container {
+    max-width: var(--container);
+    padding: 0 2rem;
+    margin: var(--m-auto);
+}
+
+#hero {
+    background: linear-gradient(var(--gr-1), var(--gr-2)), url(./assets/football-arena-field-or-soccer-stadium-background-with-bright-spotlights_212889-4388.avif) no-repeat center center / cover;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+
+.header {
+    background: var(--nav);
+    backdrop-filter: blur(10px);
+    width: 100%;
+}
+
+.navigation {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.mobile_menu_icon {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile_menu_icon .menu_icon {
+    font-size: 5rem;
+    color: var(--white);
+}
+.div_nav {
+
+}
+.nav_menu {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+.nav_list {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.nav_link {
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+.nav_link.active {
+    position: relative;
+}
+
+.nav_link.active::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: rotate(45deg) translateX(-50%);
+    bottom: -1.5rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--secondary);
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+.rec_container
+{
+  border-radius: 10px;
+  background-color: white;
+  padding: 50px;
+  width: 1000px; /* Ширина карточки */
+  height: 700px;
+  border-radius: 8px;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+}
+
+footer {
+    width: 100%;
+}
+
+footer .footer_main {
+    width: 100%;
+    background:white;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .footer_main .tag {
+    margin: 10px 0;
+    width: 235px;
+}
+
+footer .footer_main .tag .center {
+    text-align: center;
+}
+
+footer .footer_main .tag h1 {
+    font-size: 25px;
+    margin: 25px 0;
+    color: rgb(17, 197, 125);
+}
+
+footer .footer_main .tag a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin: 9px 0;
+}
+
+footer .footer_main .tag a i {
+    padding: 0 10px;
+    transition: 0.3;
+}
+
+footer .footer_main .tag a i:hover {
+    color: rgb(17, 197, 125);
+}
+
+footer .footer_main .tag .social_link {
+    display: flex;
+}
+
+footer .footer_main .tag .social_link a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    box-shadow:0 0 20px 10px rgb(0,0,0,0.05);
+    margin: 0 5px;
+    z-index:10 ;
+    overflow: hidden;
+}
+
+footer .footer_main .tag .social_link a .fa-brands {
+    font-size: 50px;
+    position: relative;
+    line-height: 70px;
+    z-index: 10;
+    transition:0.5s;
+}
+
+footer .footer_main .tag .social_link a:hover {
+    color: white;
+}
+
+.social_link a:after {
+    content: ;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -90px;
+    background: linear-gradient(#c72092,#6c14d0);
+    position: absolute;
+    z-index: -10;
+    transition: 0.5s;
+}
+
+.social_link a:hover::after {
+    left: 0;
+}
+@media (max-width: 1000px) {
+    .mobile_menu_icon {
+        display: block;
+    }
+    .nav_menu {
+        position: absolute;
+        visibility: hidden;
+        clip-path: circle(0% at 96% -20%);
+        top: 4rem;
+        left: 0;
+        width: 100%;
+        padding: 6rem 0;
+        background: var(--mobile-nav);
+        z-index: -1;
+        transition: all 0.7s ease-in-out;
+    }
+    .nav_menu.active {
+        visibility: visible;
+        clip-path: circle(150% at 100% 100%);
+        transition: all 0.7s ease-in-out;
+    }
+    .nav_list {
+        display: block;
+        text-align: center;
+        margin: 2.5rem 0;
+    }
+    .hero_img {
+        width: 100%;
+    }
+    .rec_container
+{
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 50px;
+  width: 600px; /* Ширина карточки */
+  height: 600px;
+  border-radius: 8px;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+}
+}
+
+@media (max-width: 639px) {
+    
+    .hero_img {
+        max-width: 30rem;
+    }
+    .rec_container
+{
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 50px;
+  width: 400px; /* Ширина карточки */
+  height: 600px;
+  border-radius: 8px;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+}
+}
+@media screen and (max-width:550px) {
+    .footer_main{
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    }
+}
+
+
+
+
+
+
+    </style>
+   
+</head>
+<body>
+    <section id="hero">
+        <header class="header">
+            <div class="container">
+                <div class="div_nav">
+                    <div class="mobile_menu_icon">
+                        <ion-icon name="menu-outline" class="menu_icon"></ion-icon>
+                    </div>
+                    <div class="nav_menu">
+                        <li class="nav_list">
+                            <a href="home.html" class="nav_link">Home</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="card.html" class="nav_link">Tournaments</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="fnews.html" class="nav_link">News</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="request.html" class="nav_link active">Request for participating</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="rec_container">
+            <form action="/action_page.php">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          
+              <label for="lname">Surname</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your surname..">
+          
+              <label for="lname">Phone number</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your phone number..">
+          
+              <label for="lname">Mail</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your email..">
+          
+              <label for="country">Tournaments</label>
+              <select id="country" name="country">
+                <option value="australia"></option>
+                <option value="canada"></option>
+                <option value="usa"></option>
+              </select>
+          
+              
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+    <div class="caja_results">
+        <h1></h1>
+    </div>
+    <footer>
+        <div class="footer_main">
+            <div class="tag">
+                <h1>Contact</h1>
+                <a href="#"><i class="fa-solid fa-house"></i>Bishkek</a>
+                <a href="#"><i class="fa-solid fa-phone"></i>+996 553 771 777</a>
+                <a href="#"><i class="fa-solid fa-envelope"></i>raianaabd@gmail.com</a>
+            </div>
+            <div class="tag">
+                <h1>Follw Us</h1>
+                <a href="#"><i class="fa-brands fa-facebook"></i>Us in FaceBook</a>
+                <a href="#"><i class="fa-brands fa-instagram"></i>Us in Instagram</a>
+                <a href="#"><i class="fa-brands fa-twitter"></i>Us in Twitter</a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
