@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11 /swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oswald:wght@300&family=Roboto+Condensed:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./fnews.css">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+:root {
+    --container: 144rem;
+    --m-auto: 0 auto;
+    --white: #fff;
+    --primary: #8db8ab;
+    --secondary: #eeeee4;
+    --gr-1: rgba(53, 202, 123, 0.607);
+    --gr-2: rgba(32, 190, 124, 0.665);
+    --nav: rgba(233, 217, 217, 0.045);
+    --mobile-nav: #75e19d;
+    --count-down-bg: rgba(51, 89, 47, 0.295);
+    --timer-before-bg: rgb(218, 201, 109);
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.container {
+    max-width: var(--container);
+    padding: 0 2rem;
+    margin: var(--m-auto);
+}
+
+#hero {
+    background: linear-gradient(var(--gr-1), var(--gr-2)), url(./assets/football-arena-field-or-soccer-stadium-background-with-bright-spotlights_212889-4388.avif) no-repeat center center / cover;
+    width: 100%;
+    height: fit-content;
+    padding-bottom: 20px;
+    
+}
+
+.header {
+    background: var(--nav);
+    backdrop-filter: blur(10px);
+}
+
+.navigation {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.mobile_menu_icon {
+    display: none;
+    cursor: pointer;
+}
+
+.mobile_menu_icon .menu_icon {
+    font-size: 5rem;
+    color: var(--white);
+}
+.div_nav {
+
+}
+.nav_menu {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+}
+.nav_list {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.nav_link {
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
+.nav_link.active {
+    position: relative;
+}
+
+.nav_link.active::before {
+    position: absolute;
+    content: '';
+    left: 50%;
+    transform: rotate(45deg) translateX(-50%);
+    bottom: -1.5rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--secondary);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
+}
+.fade {
+  animation-nÏame: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.new_container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 30px;
+    justify-content: center;
+}
+
+img {
+    max-width:100%;
+  }
+  .avator {
+    border-radius:100px;
+    width:48px;
+    margin-right: 15px;
+  }
+  
+  
+  .tweet-wrap {
+    width: 490px;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius:13px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid #e6ecf0;
+    border-top: 1px solid #e6ecf0;
+  }
+  
+  .tweet-header {
+    display: flex;
+    align-items:flex-start;
+    font-size:14px;
+  }
+  .tweet-header-info {
+    font-weight:bold;
+  }
+  .tweet-header-info span {
+    color:#657786;
+    font-weight:normal;
+    margin-left: 5px;
+  }
+  .tweet-header-info p {
+    font-weight:normal;
+    margin-top: 5px;
+    
+  }
+  
+  .tweet-info-counts {
+    display: flex;
+    margin-left: 60px;
+    margin-top: 10px;
+  }
+  .tweet-info-counts div {
+    display: flex;
+    margin-right: 20px;
+  }
+  .tweet-info-counts div svg {
+    color:#657786;
+    margin-right: 10px;
+  }
+  @media screen and (max-width:500px) {
+    .tweet-wrap{
+      width: 100%;
+      margin: 50px 10px 0 10px;
+      padding: 10px;
+    }
+    .footer_main{
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width:430px){
+    .tweet-header {
+      flex-direction:column;
+      gap: 10px;
+    }
+    .tweet-wrap{
+      gap: 20px;
+    }
+    .tweet-info-counts {
+    display: flex;
+    margin-left: 0;
+  }
+  .tweet-info-counts div {
+    margin-right: 10px;
+  }
+  }
+
+footer {
+    width: 100%;
+}
+
+footer .footer_main {
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .footer_main .tag {
+    margin: 10px 0;
+    width: 235px;
+}
+
+footer .footer_main .tag .center {
+    text-align: center;
+}
+
+footer .footer_main .tag h1 {
+    font-size: 25px;
+    margin: 25px 0;
+    color: rgb(17, 197, 125);
+}
+
+footer .footer_main .tag a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin: 9px 0;
+}
+
+footer .footer_main .tag a i {
+    padding: 0 10px;
+    transition: 0.3;
+}
+
+footer .footer_main .tag a i:hover {
+    color: rgb(17, 197, 125);
+}
+
+footer .footer_main .tag .social_link {
+    display: flex;
+}
+
+footer .footer_main .tag .social_link a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    box-shadow:0 0 20px 10px rgb(0,0,0,0.05);
+    margin: 0 5px;
+    z-index:10 ;
+    overflow: hidden;
+}
+
+footer .footer_main .tag .social_link a .fa-brands {
+    font-size: 50px;
+    position: relative;
+    line-height: 70px;
+    z-index: 10;
+    transition:0.5s;
+}
+
+footer .footer_main .tag .social_link a:hover {
+    color: white;
+}
+
+.social_link a:after {
+    content: ;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -90px;
+    background: linear-gradient(#c72092,#6c14d0);
+    position: absolute;
+    z-index: -10;
+    transition: 0.5s;
+}
+
+.social_link a:hover::after {
+    left: 0;
+}
+.swiper {
+  min-height: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.swiper-slide {
+  display: flex;
+  flex-wrap: wrap;
+}
+.swiper-button-next {
+  color: #93df0f;
+}
+.swiper-button-prev {
+  color: #93df0f;
+}
+.swiper-pagination {
+  
+}
+@media (max-width: 904px) {
+  .mobile_menu_icon {
+      display: block;
+  }
+  .nav_menu {
+      position: absolute;
+      visibility: hidden;
+      clip-path: circle(0% at 96% -20%);
+      top: 4rem;
+      left: 0;
+      width: 100%;
+      padding: 6rem 0;
+      background: var(--mobile-nav);
+      z-index: -1;
+      transition: all 0.7s ease-in-out;
+  }
+  .nav_menu.active {
+      visibility: visible;
+      clip-path: circle(150% at 100% 100%);
+      transition: all 0.7s ease-in-out;
+  }
+  .nav_list {
+      display: block;
+      text-align: center;
+      margin: 2.5rem 0;
+  }
+  .hero_img {
+      width: 100%;
+  }
+}
+
+@media (max-width: 639px) {
+  
+  .hero_img {
+      max-width: 30rem;
+  }
+}
+    </style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <section id="hero">
+        <header class="header">
+            <div class="container">
+                <div class="div_nav">
+                    <div class="mobile_menu_icon">
+                        <ion-icon name="menu-outline" class="menu_icon"></ion-icon>
+                    </div>
+                    <div class="nav_menu">
+                        <li class="nav_list">
+                            <a href="home.html" class="nav_link">Home</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="card.html" class="nav_link">Tournaments</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="fnews.html" class="nav_link active">News</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="request.html" class="nav_link">Request for participating</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/Без названия.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/78edf6c69eb314afe229d4c0aa8c5ba6.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/Без названия.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/78edf6c69eb314afe229d4c0aa8c5ba6.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/Без названия.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/Без названия.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/78edf6c69eb314afe229d4c0aa8c5ba6.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+                <div class="tweet-wrap">
+                    <div class="tweet-header">
+                        <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                        <div class="tweet-header-info">
+                            Steve Schoger
+                            <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                        </div>
+                    </div>
+                    <div class="tweet-img-wrap">
+                        <img src="./assets/78edf6c69eb314afe229d4c0aa8c5ba6.jpeg" alt="" class="tweet-img">
+                    </div>
+                </div>
+              </div>
+              <div class="swiper-slide"><div class="tweet-wrap">
+                <div class="tweet-header">
+                    <img src="https://pbs.twimg.com/profile_images/1012717264108318722/9lP-d2yM_400x400.jpg" alt="" class="avator">
+                    <div class="tweet-header-info">
+                        Steve Schoger
+                        <p>🔥 If you're tired of using outline styles for secondary buttons, a soft solid background based on the text color can be a great alternative.</p>
+                    </div>
+                </div>
+                <div class="tweet-img-wrap">
+                    <img src="./assets/78edf6c69eb314afe229d4c0aa8c5ba6.jpeg" alt="" class="tweet-img">
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          
+            <!-- If we need scrollbar -->
+           </div>
+
+    </section>
+    <footer>
+        <div class="footer_main">
+            <div class="tag">
+                <h1>Contact</h1>
+                <a href="#"><i class="fa-solid fa-house"></i>Bishkek</a>
+                <a href="#"><i class="fa-solid fa-phone"></i>+996 553 771 777</a>
+                <a href="#"><i class="fa-solid fa-envelope"></i>raianaabd@gmail.com</a>
+            </div>
+            <div class="tag">
+                <h1>Follw Us</h1>
+                <a href="#"><i class="fa-brands fa-facebook"></i>Us in FaceBook</a>
+                <a href="#"><i class="fa-brands fa-instagram"></i>Us in Instagram</a>
+                <a href="#"><i class="fa-brands fa-twitter"></i>Us in Twitter</a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let menu = document.querySelector('.nav_menu');
+            let menu_toggle = document.querySelector('.mobile-menu-icon');
+            let menu_toggle_icon = document.querySelector('.mobile-menu-icon ion-icon');
+            menu_toggle.addEventListener('click', () => {
+                menu.classList.toggle('active');
+                menu.classList.contains('active') ?
+                    menu_toggle_icon.setAttribute('name', 'close-outline') :
+                    menu_toggle_icon.setAttribute('name', 'menu-outline');
+            });
+            
+        });
+        
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+          
+            // If we need pagination
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+          
+            // Navigation arrows
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            // And if we need scrollbar
+          });
+    </script>
+
+</body>
+</html>
