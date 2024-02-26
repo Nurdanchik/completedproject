@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)!7y3y_j+!5q$-s(3-ln(c-)808^_+70#5zx38bqkh7$2#8^p0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','diiestoteam.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework.authtoken',
     'corsheaders',
+    'stripe',
     # installed apps
     'user',
     'tournaments',
@@ -165,12 +166,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+STRIPE_PUBLIC_KEY = 'pk_test_51Om7SfEXygrjJK76oAfpmbTRE44AJAdei2ns5UO2zSzPlJkEm5q4oAJMO4dGTvKwJBrI9RVWZeYySNqKaOXQn2wm00zwJnJIDY'
+STRIPE_SECRET_KEY = 'sk_test_51Om7SfEXygrjJK76axCwbA5JMdRNkSH45NnMUEXsp3umtVIKkAJ0CmemfjUDYCav60cmMNCOF3sVxausAmtQ1mmf00fs9L7OX4'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
