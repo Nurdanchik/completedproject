@@ -38,6 +38,7 @@ drf-spectacular-sidecar==2024.1.1
 drf-yasg==1.21.7
 Flask==2.3.2
 frozenlist==1.4.0
+greenlet==3.0.3
 h11==0.14.0
 httpcore==0.17.2
 httpx==0.24.1
@@ -81,6 +82,7 @@ social-auth-app-django==5.4.0
 social-auth-core==4.5.1
 SQLAlchemy==2.0.19
 sqlparse==0.4.4
+stripe==8.4.0
 tqdm==4.66.1
 typing_extensions==4.7.1
 tzdata==2023.4

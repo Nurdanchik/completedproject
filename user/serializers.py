@@ -30,8 +30,6 @@ class LoginSerializer(serializers.Serializer):
         email = data.get('email')
         password = data.get('password')
 
-        print(f"Email: {email}, Password: {password}")
-
 
         if email and password:
             user = User.objects.filter(email=email).first()

@@ -13,11 +13,12 @@ from aiogram.exceptions import TelegramBadRequest
 main_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text='Турниры, новости'),
+            KeyboardButton(text='Турниры'),
+            KeyboardButton(text='Новости'),
             KeyboardButton(text='Наши ссылки'),
         ],
         ],resize_keyboard=True,
-    one_time_keyboard=True,
+    # one_time_keyboard=True,
     input_field_placeholder='Выберите действие в меню',
     selective=True,
 )
@@ -26,20 +27,8 @@ main_kb = ReplyKeyboardMarkup(
 links_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text='Instahram', url='https://instagram.com/nnyshanovv'),
+            InlineKeyboardButton(text='Instagram', url='https://instagram.com/nnyshanovv'),
             InlineKeyboardButton(text='GitHub', url='https://github.com/Nurdanchik/'),
         ]
     ]
-)
-
-spec_kb = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text='Турниры'),
-            KeyboardButton(text='Новости'),        
-        ],
-        [
-            KeyboardButton(text='Назад в меню'),
-        ]
-    ],resize_keyboard=True
 )

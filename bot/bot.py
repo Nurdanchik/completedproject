@@ -25,59 +25,68 @@ async def main():
 async def echo(message:Message):
     msg = message.text.lower()
 
-    if msg == 'турниры, новости':
-         await message.answer(f'Выбирайте:', reply_markup=keyboards.spec_kb)       
-
-    elif msg== 'наши ссылки':
-        await message.answer(f'Держи:', reply_markup=keyboards.links_kb)
-    
-    elif msg== 'назад в меню':
-        await message.answer(f'Готово:', reply_markup=keyboards.main_kb)
-
-@dp.message()
-async def tournaments(message:Message):
-    msg = message.text.lower()
-
     if msg == 'турниры':
-        to_parse_url = 'http://127.0.0.1:8000/api/tournamentslist'
+        to_parse_tournaments_url = 'http://127.0.0.1:8000/api/tournamentslist'
 
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get(to_parse_url) as response:
+                async with session.get(to_parse_tournaments_url) as response:
                     data = await response.json()
 
             for tournament in data:
                 tournament_id = tournament.get('id')
+                price_fund = tournament.get('price_fund')
+                price_for_participating = tournament.get('price_for_participating')
                 description = tournament.get('description')
-                await message.answer(f"Tournament ID: {tournament_id}, Description: {description}")
+                allowedteams = tournament.get('teamsallowed')
+                alreadyin = tournament.get('alreadyin')
+                date = tournament.get('date')
+                players = tournament.get('players')
+                formatt = tournament.get('formatt')
+
+                await message.answer(f"""
+                                     
+ID турнира : {tournament_id}. 
+Призовой фонд: {price_fund}.
+Цена за участие: {price_for_participating}.
+Описание: {description}
+Разрешено команд: {allowedteams}
+Уже участвует: {alreadyin}
+Дата проведения: {date}
+Количество игроков уже:{players}
+Формат турнира:{formatt}
+
+""")
 
         except Exception as e:
-            print(f"Error fetching tournaments: {e}")
+            print(f"Error fetching tournaments: {e}") 
 
-@dp.message()
-async def tournaments(message:Message):
-    msg = message.text.lower()
+    elif msg== 'наши ссылки':
+        await message.answer(f'Держи:', reply_markup=keyboards.links_kb)
 
-    if msg== 'новости':
-        to_parse_url = 'http://127.0.0.1:8000/api/newslist'
+    elif msg== 'новости':
+        to_parse_news_url = 'http://127.0.0.1:8000/api/newslist'
 
         try:
             async with aiohttp.ClientSession() as session:
-                async with session.get(to_parse_url) as response:
+                async with session.get(to_parse_news_url) as response:
                     data = await response.json()
 
             for news_item in data:
                 news_id = news_item.get('id')
-                price_fund = news_item.get('price_fund')
-                who_is_owner = news_item.get('whoisowner')
-                price_for_participating = news_item.get('price_for_participating')
                 description = news_item.get('description')
+                await message.answer(f"""
+                                     
+ID новости: {news_id}.
+Описание: {description}
 
-                await message.answer(f"News ID: {news_id}, Price Fund: {price_fund}, Owner: {who_is_owner}, "
-                                    f"Participation Price: {price_for_participating}, Description: {description}")
+""")
 
         except Exception as e:
             print(f"Error fetching news: {e}")
+    
+    elif msg== 'назад в меню':
+        await message.answer(f'Готово:', reply_markup=keyboards.main_kb)
 
 
 if __name__ == '__main__':
