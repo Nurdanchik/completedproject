@@ -5,7 +5,7 @@ from .models import Tournament
 class TournamentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tournament
-        fields = ['id', 'name', 'picture', 'price_fund', 'whoisowner', 'price_for_participating', 'description', 'teamsallowed', 'date', 'alreadyin', 'formatt']
+        fields = ['id', 'name', 'picture', 'price_fund', 'whoisowner', 'price_for_participating', 'description', 'teamsallowed', 'date', 'alreadyin', 'formatt', 'sports', 'cyberSports', 'typee']
 
 #     class Meta:
 #         model = SearchTournament

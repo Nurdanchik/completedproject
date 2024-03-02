@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework import filters
 
 class TournamentListCreateView(generics.ListCreateAPIView):
-    search_fields = ['name', 'id']  # Указываем поле, по которому будет осуществляться поиск
+    search_fields = ['name', 'id']
     filter_backends = (filters.SearchFilter, )
     queryset = Tournament.objects.all()
     serializer_class = TournamentSerializer

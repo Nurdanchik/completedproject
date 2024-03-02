@@ -26,7 +26,7 @@ async def echo(message:Message):
     msg = message.text.lower()
 
     if msg == 'турниры':
-        to_parse_tournaments_url = 'http://127.0.0.1:8000/api/tournamentslist'
+        to_parse_tournaments_url = 'http://127.0.0.1:8000/api/tournamentslist/'
 
         try:
             async with aiohttp.ClientSession() as session:
@@ -50,11 +50,10 @@ ID турнира : {tournament_id}.
 Призовой фонд: {price_fund}.
 Цена за участие: {price_for_participating}.
 Описание: {description}
-Разрешено команд: {allowedteams}
-Уже участвует: {alreadyin}
 Дата проведения: {date}
-Количество игроков уже:{players}
 Формат турнира:{formatt}
+
+Полная информация на сайте.
 
 """)
 
@@ -65,7 +64,7 @@ ID турнира : {tournament_id}.
         await message.answer(f'Держи:', reply_markup=keyboards.links_kb)
 
     elif msg== 'новости':
-        to_parse_news_url = 'http://127.0.0.1:8000/api/newslist'
+        to_parse_news_url = 'http://127.0.0.1:8000/api/newslist/'
 
         try:
             async with aiohttp.ClientSession() as session:
