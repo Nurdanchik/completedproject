@@ -26,7 +26,7 @@ class TournamentListCreateView(generics.ListCreateAPIView):
 class TournamentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tournament.objects.all()
     serializer_class = TournamentSerializer
-    permission_classes = [IsAuthenticated | IsAdminUser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 # class SearchTournamentView(generics.ListAPIView):
 #     queryset = Tournament.objects.all()
