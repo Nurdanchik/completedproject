@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 class Tournament(models.Model):
-    SPORT = 'sports'
-    CYBERSPORT = 'cybersports'
+    SPORT = 'sport'
+    CYBERSPORT = 'cybersport'
 
     SINGLE = 'single'
     TEAM = 'team'
